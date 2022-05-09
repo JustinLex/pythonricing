@@ -27,6 +27,9 @@ which introduced me to Loguru, and has some great code for injecting Loguru into
 Check out their example app if you want to see some proper production-ready python code. 
 (Though their app isn't as well containerized and Kubernetes-ready as this app is!)
 
+Note: Even though loguru is supposed to be asynchronous, it still seems to generate an entire millisecond of latency per request.
+It's possible that loguru is not asynchronous when logging to stdout.
+
 ### Operations
 Everything is deployed with OCI containers and Kubernetes manifests, which can be run with podman.
 
@@ -86,7 +89,11 @@ Time per request:
 
 16 threads with no syncing: 4375 requests/s, and 2.285ms per request
 
+16 threads with loguru disabled: 6013 requests/s, and 1.663ms per request
+
 ### High-load benchmark
 Benchmarked with Apache benchmark: `ab -n 100000 -c 1000 http://127.0.0.1:8080/`
 
-16 threads with redis syncing, 6384 requests/s, and 156.546ms per request
+16 threads with redis syncing: 6384 requests/s, and 156.546ms per request
+
+16 threads with loguru disabled: 6808 requests/s, and 146.879ms per request
