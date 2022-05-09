@@ -76,8 +76,17 @@ podman pod rm redis -f
 ```
 
 ## Benchmarks
+
+### Low-load benchmark
 Benchmarked with Apache benchmark: `ab -n 10000 -c 10 http://127.0.0.1:8080/`
 
-16 threads with Redis syncing: 2.659 ms
+Time per request:
 
-16 threads with no syncing: 2.285ms
+16 threads with Redis syncing: 3761 requests/s, and 2.659 ms per request
+
+16 threads with no syncing: 4375 requests/s, and 2.285ms per request
+
+### High-load benchmark
+Benchmarked with Apache benchmark: `ab -n 100000 -c 1000 http://127.0.0.1:8080/`
+
+16 threads with redis syncing, 6384 requests/s, and 156.546ms per request
