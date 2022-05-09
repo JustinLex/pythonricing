@@ -31,7 +31,8 @@ Check out their example app if you want to see some proper production-ready pyth
 Everything is deployed with OCI containers and Kubernetes manifests, which can be run with podman.
 
 Ideally we would use 16 containers and load-balance them for my 16 thread laptop, 
-but podman does not have built-in support for service load balancing, so we tell uvicorn to spawn 16 workers instead.
+but podman does not have built-in support for service load balancing like real Kubernetes,
+so we tell uvicorn to spawn 16 workers instead.
 This is more fragile for production, but it works well enough for some benchmarking.
 
 The Containerfile for the application (aka Dockerfile) can be found at `./Containerfile`.
