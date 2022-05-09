@@ -15,7 +15,7 @@ Using Redis or postgresql to sync threads and containers to advance counter stat
 so it is possible that the counter could advance past 100.
   * Postgres will be slower, but will have no race conditions
 
-###Logging
+### Logging
 Logging was going to be done with Sentry, which was the best option for logging monolithic apps back in the 2010s, 
 but with microservices running in kubernetes, 
 [it's best to just log raw json to stdout](https://kubernetes.io/docs/concepts/cluster-administration/logging/).
