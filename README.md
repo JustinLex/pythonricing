@@ -24,7 +24,7 @@ See [this](https://gitlab.com/stephen6/jslog4kube) for another python project th
 Therefore, to enable these best-practices, it was decided to use Loguru for fast, async, and JSONized logging.
 Inspiration came from nsidnev's amazing "[FastAPI real-world example app](https://github.com/nsidnev/fastapi-realworld-example-app)",
 which introduced me to Loguru, and has some great code for injecting Loguru into the uvicorn logger. 
-Check out this example app if you want to see some proper production-ready python code. 
+Check out their example app if you want to see some proper production-ready python code. 
 (Though their app isn't as well containerized and Kubernetes-ready as this app is!)
 
 ### Operations
