@@ -1,7 +1,7 @@
 #Python Ricing
 A little experiment with high speed python microservices, based on FastAPI's architecture.
 
-Using uvicorn as a high speed HTTP server using Linux uvloop and ASGI.
+Using uvicorn as a high speed HTTP server using uvloop and ASGI.
 
 Using Starlette as a high speed ASGI framework
 
