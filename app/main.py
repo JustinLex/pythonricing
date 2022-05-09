@@ -13,6 +13,10 @@ import redis.asyncio as redis
 from .logs import init_logger
 
 
+# Connection object for redis
+redis_conn = None
+
+
 # Set up loguru and inject it so that it intercepts all stdlib and uvicorn logging
 init_logger()
 
@@ -36,7 +40,13 @@ app = Starlette(debug=True, routes=[
 # Connect to redis once Starlette has started
 @app.on_event("startup")
 async def connect_redis() -> None:
-    connection = redis.Redis(host="127.0.0.1", port=6379)
-    ping_success = connection.ping()
-    logger.info("Ping successful: {ping_success}", ping_success=ping_success)
-    await connection.close()
+    global redis_conn
+    redis_conn = redis.Redis(host="127.0.0.1", port=6379)
+    ping_success = await redis_conn.ping()
+    logger.info("Redis ping successful: {ping_success}", ping_success=ping_success)
+
+
+# Disconnect from redis when Starlette shuts down
+@app.on_event("shutdown")
+async def disconnect_redis() -> None:
+    await redis_conn.close()
