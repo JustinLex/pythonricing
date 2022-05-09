@@ -1,4 +1,4 @@
-#Python Ricing
+# Python Ricing
 A little experiment with high speed python microservices, based on FastAPI's architecture.
 
 ## Library decisions
