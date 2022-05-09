@@ -57,3 +57,8 @@ The application is now available at `127.0.0.1:8080`, you can access it in your 
 podman play kube --down playfile.yaml
 ```
 
+Sometimes, if a pod fails to start, `podman play` will refuse to work, and you will have to delete the pods manually.
+```commandline
+podman pod rm pythonricing -f
+podman pod rm redis -f
+```
