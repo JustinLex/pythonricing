@@ -28,10 +28,14 @@ Check out this example app if you want to see some proper production-ready pytho
 ### Operations
 Everything is deployed with OCI containers and Kubernetes manifests, which can be run with podman.
 
+The Containerfile for the application (aka Dockerfile) can be found at `./Containerfile`.
+
+The Kubernetes manifest for deploying the application pods and database pods is at `./playfile.yaml`.
+
 ## OCI container image size
 It's a bit tricky to make small python container images, as there are a lot of runtime libraries needed.
 
-Using an python-alpine base image, the app image comes out at 65MB.
+Using a python-alpine base image, the app image comes out at 65MB.
 
 ## Testing app standalone
 
