@@ -42,4 +42,4 @@ def init_logger() -> None:
     for logger_name in ("uvicorn.asgi", "uvicorn.access"):
         logging_logger = logging.getLogger(logger_name)
         logging_logger.handlers = [InterceptHandler(level=logging.INFO)]
-    logger.configure(handlers=[{"sink": sys.stdout, "level": logging.INFO, "enqueue": True}])
+    logger.configure(handlers=[{"sink": sys.stdout, "level": logging.INFO, "enqueue": True, "serialize": True}])
