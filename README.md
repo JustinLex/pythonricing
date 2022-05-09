@@ -12,7 +12,7 @@ A little experiment with high speed python microservices, based on FastAPI's arc
 ### Database / Thread syncing
 Using Redis or postgresql to sync threads and containers to advance counter state and halt at 100. 
   * Redis should be faster, but is not perfectly consistant at scale (in an ACID sense), 
-so it is possible that the counter could advance past 100.
+so it is possible that numbers in the count could be repeated.
   * Postgres will be slower, but will have no race conditions
 
 ### Logging
