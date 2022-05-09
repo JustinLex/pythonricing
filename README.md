@@ -7,7 +7,7 @@ A little experiment with high speed python microservices, based on FastAPI's arc
 * Using uvicorn as a high speed HTTP server using uvloop and ASGI.
 * Using Starlette as a high speed ASGI framework
   * Starlette is probably our biggest bottleneck for such a small benchmark like this, 
-  but it's probably the best balance of speed and usability for a microservice like this.
+  but it's probably the best balance of speed and usability for a real-world microservice.
 
 ### Database / Thread syncing
 Using Redis or postgresql to sync threads and containers to advance counter state and halt at 100. 
