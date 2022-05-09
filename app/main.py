@@ -1,3 +1,4 @@
+import asyncio
 from typing import Optional
 
 from starlette.applications import Starlette
@@ -67,6 +68,7 @@ app = Starlette(debug=True, routes=[
 @app.on_event("startup")
 async def connect_redis() -> None:
     global redis_conn
+    await asyncio.sleep(5)  # sleep 5 secs so redis can start, since dead threads don't respawn when using multiple workers
     redis_conn = redis.Redis(host="127.0.0.1", port=6379)
     ping_success = await redis_conn.ping()
     logger.info("Redis ping successful: {ping_success}", ping_success=ping_success)
