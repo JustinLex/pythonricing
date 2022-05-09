@@ -34,8 +34,22 @@ It's a bit tricky to make small python container images, as there are a lot of r
 Using an python-alpine base image, the app image comes out at 65MB.
 
 ## Testing app standalone
+
+### Build app
 ```commandline
 podman build -t pythonricing .
-podman run -p 8080:80 pythonricing
 ```
-Then go to 127.0.0.1:8080 in your browser
+
+### Start pods
+```commandline
+podman play kube playfile.yaml
+```
+
+### Make requests
+The application is now available at `127.0.0.1:8080`, you can access it in your browser or use benchmarking tools
+
+### Tear down pods
+```commandline
+podman play kube --down playfile.yaml
+```
+
