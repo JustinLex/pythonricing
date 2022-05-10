@@ -83,6 +83,11 @@ async def connect_redis() -> None:
 async def disconnect_redis() -> None:
     await redis_conn.close()
 
-if __name__ == "__main__":
+
+def main():
     asgi_app = cast(ASGIApplication, app)  # Starlette has bad type hints
     uvicorn.run(asgi_app, host="0.0.0.0", port=8080)
+
+
+if __name__ == "__main__":
+    main()

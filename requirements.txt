@@ -5,3 +5,5 @@ asgiref~=3.5.1
 redis==4.3.0
 
 loguru==0.6.0
+
+pyinstaller==5.0.1
