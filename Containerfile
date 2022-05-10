@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.10-alpine
+FROM docker.io/library/python:3.10-slim
 
 WORKDIR /code
 
