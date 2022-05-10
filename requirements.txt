@@ -1,4 +1,7 @@
-uvicorn==0.17.6
+uvicorn[standard]==0.17.6
 starlette==0.20.0
+asgiref~=3.5.1
+
 redis==4.3.0
+
 loguru==0.6.0

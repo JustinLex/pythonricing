@@ -1,5 +1,9 @@
 import asyncio
-from typing import Optional
+from typing import Optional, cast
+
+import uvicorn
+
+from asgiref.typing import ASGIApplication
 
 from starlette.applications import Starlette
 from starlette.responses import JSONResponse, Response
@@ -78,3 +82,7 @@ async def connect_redis() -> None:
 @app.on_event("shutdown")
 async def disconnect_redis() -> None:
     await redis_conn.close()
+
+if __name__ == "__main__":
+    asgi_app = cast(ASGIApplication, app)  # Starlette has bad type hints
+    uvicorn.run(asgi_app, host="0.0.0.0", port=8080)
