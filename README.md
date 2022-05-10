@@ -91,9 +91,14 @@ Time per request:
 
 16 threads with loguru disabled: 6013 requests/s, and 1.663ms per request
 
+16 threads with Redis syncing and C-based libraries: 5834 requests/s, and 1.714 ms per request
+
+
 ### High-load benchmark
 Benchmarked with Apache benchmark: `ab -n 100000 -c 1000 http://127.0.0.1:8080/`
 
 16 threads with redis syncing: 6384 requests/s, and 156.546ms per request
 
 16 threads with loguru disabled: 6808 requests/s, and 146.879ms per request
+
+16 threads with C-based libraries: 7229 requests/s, and 138.316 ms per request
