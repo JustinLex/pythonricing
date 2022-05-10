@@ -18,7 +18,7 @@ redis_conn: Optional[redis.Redis] = None
 
 
 # Set up loguru and inject it so that it intercepts all stdlib and uvicorn logging
-init_logger()
+#init_logger()
 
 
 # Our one and only Route
@@ -40,7 +40,7 @@ async def homepage(request: Request) -> Response:
 
         # Log current request number
         # Using loguru kwargs to add the "request_count" key-value to the "extra" dict in the JSON log line
-        logger.info("Request #{request_count}", request_count=request_count)
+        #logger.info("Request #{request_count}", request_count=request_count)
 
         return JSONResponse({
             'hello': 'world',
@@ -49,7 +49,7 @@ async def homepage(request: Request) -> Response:
 
     # We already hit 100 requests, log and response
     else:
-        logger.warning("Received a request but we already hit 100 requests!")
+        #logger.warning("Received a request but we already hit 100 requests!")
 
         return JSONResponse({
             'Go': 'away!',
